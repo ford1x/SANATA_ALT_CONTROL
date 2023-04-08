@@ -221,8 +221,8 @@ local SetupsTable = {
 	},
 	Admin = {
 		Origin = CFrame.new(-884.12915, -38.3972931, -545.291809, -0.99998939, 2.69316498e-08, -0.00460755778, 2.6944301e-08, 1, -2.68358624e-09, 0.00460755778, -2.80770518e-09, -0.99998939),
-		ZMultiplier = 50,
-		XMultiplier = 40,
+		ZMultiplier = 15,
+		XMultiplier = 20,
 		PerRow = 6,
 		Rows = 6,
 	},
@@ -389,14 +389,14 @@ local function Initiate()
 		if Host and not Crashed and Variables["Player"].Character and Variables["Player"].Character:FindFirstChild("HumanoidRootPart") and Variables["Player"].Character:FindFirstChild("Humanoid") and Variables["Player"].Character.Humanoid.Health > 0 then
 			if Args[1] == ".drop" then
 				Drop(true)
-			elseif not CmdSettings["AdOn"] and Args[1] == ".ad" and Args[2] == "on" then
-				local newStr = string.gsub(Message, ".ad on", "")
+			elseif not CmdSettings["AdOn"] and Args[1] == ".say" and Args[2] == "on" then
+				local newStr = string.gsub(Message, ".say on", "")
 				CmdSettings["AdOn"] = true
 				while CmdSettings["AdOn"] do
 					game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(newStr, 'All'); 
 					wait(1.5)	
 				end
-			elseif Message == ".ad off" then				
+			elseif Message == ".say off" then				
 				CmdSettings["AdOn"] = nil
 			elseif Message == ".loopdel" then
 				if DropFolder then
